@@ -1,0 +1,28 @@
+<div ng-show="user" id="githubViewer">
+        <img ng-src="{{user.avatar_url}}" title="{{user.name}}" 
+        style="width:180px;height:180px;"/>
+</div>
+<div ng-show="repos">
+    Order:
+  <select ng-model=sortByOrder>
+    <option value="+name">Name</option>
+    <option value="-stargazers_count">Stars</option>
+    <option value="+language">Language</option>
+  </select>
+  <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Stars</th>
+      <th>Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="repo in repos | orderBy: sortByOrder">
+      <td>{{repo.name}}</td>
+      <td>{{repo.stargazers_count | number}}</td>
+      <td>{{repo.language}}</td>
+    </tr>
+  </tbody>
+  </table>
+</div>

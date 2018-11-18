@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html ng-app="plunker">
+  <head>
+    <link rel="stylesheet" href="lib/style.css">
+    <script src="lib/script.js"></script>
+    <script src="lib/github.js"></script>
+  </head>
+
+  <body ng-cloak>
+    <div ng-controller="MainCtrl">
+      <h1>{{name}}</h1>
+      <span ng-show="error">{{error}}</span>
+      <form name="githubUsername">
+        <div ng-hide="showTimer">
+          <p>Will start searching in: {{countDownTimer}}</p>
+        </div>
+        <input type="text" required ng-model="username"/>
+        <input type="submit" value="Submit" ng-click="search()"/>
+      </form>
+      <h2>{{user.name}}</h2>
+      <div ng-include="'userdetail.html'" ng-show="user"></div>
+    </div>
+  </body>
+</html>
